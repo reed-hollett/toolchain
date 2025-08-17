@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Toolchain</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://unpkg.com/@mux/mux-player@latest/dist/mux-player.js"></script>
+  <script src="https://unpkg.com/@mux/mux-player@latest/dist/mux-player.css"></script>
+</head>
+<body>
+  <div class="container">
+    <aside class="sidebar">
+      <header class="sidebar-header">
+        <h1>Toolchain</h1>
+        <p>A collection of generative design tools by Reed Hollett.</p>
+      </header>
+      
+      <nav class="sidebar-nav">
+        <div id="grid" class="card-grid"></div>
+      </nav>
+    </aside>
+
+    <main class="preview-area">
+      <div id="preview-content" class="preview-content">
+        <div class="loading-state">
+          <div class="loading-spinner"></div>
+          <p>Loading projects...</p>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/mux-embed@latest/dist/mux-embed.js"></script>
+  <script src="script.js" defer></script>
+</body>
+</html>

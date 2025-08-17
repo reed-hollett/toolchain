@@ -1,0 +1,20 @@
+{
+  "name": "toolchain",
+  "version": "1.0.0",
+  "description": "A collection of generative design tools by Reed Hollett",
+  "main": "public/index.html",
+  "scripts": {
+    "start": "npx http-server public -p 3000 -o",
+    "dev": "npx http-server public -p 3000 -o -c-1"
+  },
+  "keywords": [
+    "design",
+    "tools",
+    "generative"
+  ],
+  "author": "Reed Hollett",
+  "license": "MIT",
+  "dependencies": {
+    "mux-embed": "^5.11.0"
+  }
+}

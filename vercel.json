@@ -1,0 +1,7 @@
+{
+    "redirects": [
+      { "source": "/go/type-dither", "destination": "https://typedither.vercel.app", "permanent": true },
+      { "source": "/go/type-line",   "destination": "https://typeline.vercel.app",   "permanent": true }
+    ]
+  }
+  
