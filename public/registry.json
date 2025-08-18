@@ -21,7 +21,7 @@
       "description": "Replaces text with lines; control weight, size, and line thickness.",
       "outputs": ["motion", "image", "interactive"],
       "stack": ["Cursor"],
-      "muxPlaybackId": "insertIDHere"
+      "muxPlaybackId": "rWe9F4tcfv5MusH8GzHf00IdJ5xAYCutDnyEeZjm02Bok"
     },
     {
       "slug": "type-slice",

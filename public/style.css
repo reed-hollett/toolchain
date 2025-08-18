@@ -147,7 +147,7 @@ body {
   display: flex;
   align-items: flex-start;
   justify-content: center;
-  padding: 40px;
+  padding: 40px 20px;
   overflow-y: auto;
   height: 100vh;
 }
@@ -248,4 +248,42 @@ body {
   .preview-area {
     padding: 20px;
   }
+}
+
+/* Video Player Controls - Completely Hidden */
+mux-player {
+  --controls: none !important;
+  --timeline: none !important;
+  --play-button: none !important;
+  --volume: none !important;
+  --fullscreen: none !important;
+}
+
+mux-player::part(controls) {
+  display: none !important;
+}
+
+mux-player::part(timeline) {
+  display: none !important;
+}
+
+mux-player::part(play-button) {
+  display: none !important;
+}
+
+mux-player::part(volume) {
+  display: none !important;
+}
+
+mux-player::part(fullscreen) {
+  display: none !important;
+}
+
+/* Hide any remaining control elements */
+mux-player *[class*="control"],
+mux-player *[class*="timeline"],
+mux-player *[class*="play"],
+mux-player *[class*="volume"],
+mux-player *[class*="fullscreen"] {
+  display: none !important;
 }

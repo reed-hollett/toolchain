@@ -6,7 +6,16 @@
   <title>Toolchain</title>
   <link rel="stylesheet" href="style.css" />
   <script src="https://unpkg.com/@mux/mux-player@latest/dist/mux-player.js"></script>
-  <script src="https://unpkg.com/@mux/mux-player@latest/dist/mux-player.css"></script>
+  <script>
+    // Check if MUX loaded successfully
+    window.addEventListener('load', function() {
+      if (customElements.get('mux-player')) {
+        console.log('✅ mux-player custom element registered');
+      } else {
+        console.log('❌ mux-player custom element not registered');
+      }
+    });
+  </script>
 </head>
 <body>
   <div class="container">
@@ -31,7 +40,6 @@
     </main>
   </div>
 
-  <script src="https://cdn.jsdelivr.net/npm/mux-embed@latest/dist/mux-embed.js"></script>
   <script src="script.js" defer></script>
 </body>
 </html>

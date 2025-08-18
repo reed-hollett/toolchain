@@ -1,9 +1,9 @@
 (async function () {
-  // Check if MUX is available
-  if (typeof mux === 'undefined') {
-    console.log('MUX library not loaded, videos will show as placeholders');
+  // Check if mux-player custom element is available
+  if (customElements.get('mux-player')) {
+    console.log('✅ mux-player custom element available for videos');
   } else {
-    console.log('MUX library loaded successfully');
+    console.log('❌ mux-player custom element not available, videos will show as placeholders');
   }
 
   const res = await fetch('registry.json');
@@ -28,7 +28,7 @@
   function updatePreview(tool) {
     let previewContent = '';
     
-    if (tool.muxPlaybackId && typeof mux !== 'undefined' && customElements.get('mux-player')) {
+    if (tool.muxPlaybackId && customElements.get('mux-player')) {
       // Show video player for projects with MUX playback ID
       previewContent = `
         <mux-player 
@@ -39,7 +39,17 @@
           loop
           muted
           controls="false"
-          preload="auto">
+          preload="auto"
+          hide-controls
+          hide-timeline
+          hide-play-button
+          hide-volume
+          hide-fullscreen
+          no-controls
+          no-timeline
+          no-play-button
+          no-volume
+          no-fullscreen>
         </mux-player>
       `;
     } else {
