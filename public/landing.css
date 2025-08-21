@@ -11,7 +11,7 @@ body {
   font-family: "Neue Haas Grotesk", "Neue Haas Grotesk Text Pro", "Helvetica Neue", Helvetica, Arial, sans-serif;
   margin: 0;
   padding: 0;
-  background: #fafafa;
+  background: #e5e7eb;
   color: #111;
   min-height: 100vh;
 }
@@ -20,7 +20,7 @@ body {
 
 .landing-header {
   position: fixed;
-  top: 0;
+  top: -16px;
   left: 0;
   right: 0;
   text-align: left;
@@ -29,17 +29,19 @@ body {
 }
 
 .landing-header h1 {
-  font-size: 14px;
-  font-weight: 600;
-  margin: 0 0 8px 0;
-  color: #666;
+  font-size: 14.2848px;
+  font-weight: 400;
+  margin: 0;
+  color: #1E1E1E;
+  font-family: "Neue Haas Grotesk", Icons, sans-serif;
 }
 
 .landing-header p {
-  font-size: 14px;
-  color: #666;
+  font-size: 14.2848px;
+  color: #1E1E1E;
   margin: 0;
   line-height: 1.4;
+  font-family: "Neue Haas Grotesk", Icons, sans-serif;
 }
 
 .image-grid-container {
@@ -83,16 +85,9 @@ body {
 }
 
 .image-card:hover {
-  transform: scale(1.01);
-  z-index: 10;
 }
 
-/* When hovering over a card, make all other cards blur, black & white, and transparent */
-.image-grid:hover .image-card:not(:hover) img {
-  filter: grayscale(100%) brightness(0.7) blur(2px);
-  opacity: 0.6;
-  transition: all 0.3s ease;
-}
+
 
 .image-caption {
   position: absolute;
@@ -125,9 +120,7 @@ body {
   filter: hue-rotate(180deg) saturate(1.2) contrast(1.1);
 }
 
-.image-card:hover img {
-  transform: scale(1.05);
-}
+
 
 .image-placeholder {
   width: 100%;

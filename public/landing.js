@@ -161,16 +161,35 @@
           <div class="image-caption">Explore the tool used to create this image</div>
         `;
         
-        // Add click handler to navigate to the project
-        card.addEventListener('click', () => {
-          if (tool) {
-            // Store the selected project in sessionStorage and redirect to the main app
-            sessionStorage.setItem('selectedProject', imageInfo.projectSlug);
-            window.location.href = 'projects.html';
-          }
-        });
-        
-        imageGrid.appendChild(card);
+            // Add hover effects
+    card.addEventListener('mouseenter', () => {
+      // Add blur effect to all other images
+      document.querySelectorAll('.image-card img').forEach(img => {
+        if (img !== card.querySelector('img')) {
+          img.style.filter = 'grayscale(100%) brightness(0.7) blur(8px)';
+          img.style.opacity = '0.2';
+        }
+      });
+    });
+    
+    card.addEventListener('mouseleave', () => {
+      // Remove blur effect from all images
+      document.querySelectorAll('.image-card img').forEach(img => {
+        img.style.filter = '';
+        img.style.opacity = '';
+      });
+    });
+    
+    // Add click handler to navigate to the project
+    card.addEventListener('click', () => {
+      if (tool) {
+        // Store the selected project in sessionStorage and redirect to the main app
+        sessionStorage.setItem('selectedProject', imageInfo.projectSlug);
+        window.location.href = 'projects.html';
+      }
+    });
+    
+    imageGrid.appendChild(card);
       });
     }
   }
