@@ -1,5 +1,17 @@
 [
     {
+      "slug": "type-blur",
+      "name": "Type blur",
+      "emoji": "🌫️",
+      "year": 2025,
+      "status": "lab",
+      "url": "https://typeblur.vercel.app",
+      "description": "Applies blur effects to text with adjustable intensity and style controls.",
+      "outputs": ["image", "interactive"],
+      "stack": ["Cursor"],
+      "muxPlaybackId": "insertIDHere"
+    },
+    {
       "slug": "type-dither",
       "name": "Type dither",
       "emoji": "🪩",
@@ -8,7 +20,7 @@
       "url": "https://typedither.vercel.app",
       "description": "Dithers negative/positive space of text; control weight, size, and pixel size.",
       "outputs": ["motion", "image", "interactive"],
-      "stack": ["ChatGPT"],
+      "stack": ["Cursor"],
       "muxPlaybackId": "s1wi900uaANFE2E6k4Wsyf00bKsIqb02r5ns3puCqWK55w"
     },
     {
