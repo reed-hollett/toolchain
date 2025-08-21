@@ -95,14 +95,7 @@
       description: 'Color image dither project',
       size: 'medium'
     },
-    {
-      src: 'images/Frame-13.png',
-      alt: 'Woodpecker',
-      projectSlug: 'image-dither', // This will be updated based on your mapping
-      title: 'Woodpecker',
-      description: 'Image dither project',
-      size: 'small'
-    },
+
     {
       src: 'images/Frame-14.png',
       alt: 'Trivia Night',

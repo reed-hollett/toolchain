@@ -75,6 +75,23 @@
       </div>
     `;
     
+    // Add iframe for type-dither project
+    if (tool.slug === 'type-dither') {
+      previewContent += `
+        <div class="project-iframe">
+          <h4>Interactive Tool</h4>
+          <iframe 
+            src="https://www.type-tools.com/dither/dither.html" 
+            width="100%" 
+            height="600" 
+            frameborder="0"
+            style="border-radius: var(--radius); border: 1px solid #e5e7eb;"
+            title="Type Dither Tool">
+          </iframe>
+        </div>
+      `;
+    }
+    
     document.getElementById('preview-content').innerHTML = previewContent;
   }
 
@@ -89,11 +106,6 @@
         <h2>${t.name}</h2>
       </div>
       <p>${t.description}</p>
-      <div class="meta">
-        <span class="badge">${t.year}</span>
-        ${t.status ? `<span class="badge">${t.status}</span>` : ""}
-        ${Array.isArray(t.outputs) ? t.outputs.map(o => `<span class="badge">${o}</span>`).join("") : ""}
-      </div>
     `;
     
     // Add click handler for card selection

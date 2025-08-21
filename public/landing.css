@@ -45,15 +45,17 @@ body {
 .image-grid-container {
   width: 100%;
   margin-top: 100px; /* Account for fixed header height */
+  padding: 0 40px;
 }
 
 .image-grid {
   display: grid;
-  grid-template-columns: repeat(12, 1fr);
-  grid-auto-rows: minmax(200px, auto);
-  gap: 16px;
+  grid-template-columns: repeat(16, 1fr);
+  grid-auto-rows: min-content;
+  gap: 20px;
   width: 100%;
   padding: 20px 0;
+  align-items: start;
 }
 
 .image-card {
@@ -63,26 +65,33 @@ body {
   transition: all 0.2s ease;
   cursor: pointer;
   will-change: transform;
+  height: fit-content;
+  margin-bottom: 50px;
 }
 
 /* Different sizes for asymmetric grid */
 .image-card--large {
-  grid-column: span 4;
-  grid-row: span 3;
+  grid-column: span 5;
 }
 
 .image-card--medium {
-  grid-column: span 3;
-  grid-row: span 2;
+  grid-column: span 4;
 }
 
 .image-card--small {
-  grid-column: span 2;
-  grid-row: span 2;
+  grid-column: span 3;
 }
 
 .image-card:hover {
-  transform: scale(1.02);
+  transform: scale(1.01);
+  z-index: 10;
+}
+
+/* When hovering over a card, make all other cards blur, black & white, and transparent */
+.image-grid:hover .image-card:not(:hover) img {
+  filter: grayscale(100%) brightness(0.7) blur(2px);
+  opacity: 0.6;
+  transition: all 0.3s ease;
 }
 
 .image-caption {
@@ -100,6 +109,7 @@ body {
   transition: all 0.3s ease;
   pointer-events: none;
   z-index: 5;
+  margin-top: 8px;
 }
 
 .image-card:hover .image-caption {
@@ -109,8 +119,8 @@ body {
 
 .image-card img {
   width: 100%;
-  height: 100%;
-  object-fit: contain;
+  height: auto;
+  display: block;
   transition: all 0.2s ease;
   filter: hue-rotate(180deg) saturate(1.2) contrast(1.1);
 }

@@ -250,6 +250,28 @@ body {
   background: #333;
 }
 
+.project-iframe {
+  margin-top: 32px;
+  padding: 24px;
+  background: #f8f9fa;
+  border-radius: var(--radius);
+}
+
+.project-iframe h4 {
+  margin: 0 0 16px 0;
+  font-size: 18px;
+  font-weight: 600;
+  color: #333;
+}
+
+.project-iframe iframe {
+  width: 100%;
+  height: 600px;
+  border: none;
+  border-radius: var(--radius);
+  background: white;
+}
+
 /* Responsive adjustments */
 @media (max-width: 768px) {
   .container {
