@@ -3,43 +3,21 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Toolchain</title>
-  <link rel="stylesheet" href="style.css" />
-  <script src="https://unpkg.com/@mux/mux-player@latest/dist/mux-player.js"></script>
-  <script>
-    // Check if MUX loaded successfully
-    window.addEventListener('load', function() {
-      if (customElements.get('mux-player')) {
-        console.log('✅ mux-player custom element registered');
-      } else {
-        console.log('❌ mux-player custom element not registered');
-      }
-    });
-  </script>
+  <title>Toolchain - Landing</title>
+  <link rel="stylesheet" href="landing.css" />
 </head>
 <body>
-  <div class="container">
-    <aside class="sidebar">
-      <header class="sidebar-header">
-        <h1>Toolchain</h1>
-        <p>A collection of generative design tools by Reed Hollett.</p>
-      </header>
-      
-      <nav class="sidebar-nav">
-        <div id="grid" class="card-grid"></div>
-      </nav>
-    </aside>
+  <header class="landing-header">
+    <h1>Toolchain</h1>
+    <p>A collection of generative design tools by Reed Hollett</p>
+  </header>
+  
+  <main class="image-grid-container">
+    <div id="image-grid" class="image-grid">
+      <!-- Images will be populated by JavaScript -->
+    </div>
+  </main>
 
-    <main class="preview-area">
-      <div id="preview-content" class="preview-content">
-        <div class="loading-state">
-          <div class="loading-spinner"></div>
-          <p>Loading projects...</p>
-        </div>
-      </div>
-    </main>
-  </div>
-
-  <script src="script.js" defer></script>
+  <script src="landing.js" defer></script>
 </body>
-</html>
+</html> 

@@ -104,10 +104,25 @@
     grid.appendChild(el);
   });
   
-  // Select first card immediately after all cards are created
+  // Check if there's a selected project from the landing page
+  const selectedProjectSlug = sessionStorage.getItem('selectedProject');
+  let projectToSelect = 0; // Default to first project
+  
+  if (selectedProjectSlug) {
+    const selectedIndex = tools.findIndex(t => t.slug === selectedProjectSlug);
+    if (selectedIndex !== -1) {
+      projectToSelect = selectedIndex;
+    }
+    // Clear the session storage
+    sessionStorage.removeItem('selectedProject');
+  }
+  
+  // Select the appropriate card
   if (tools.length > 0) {
-    const firstCard = document.querySelector('.card');
-    selectCard(firstCard, tools[0]);
+    const cards = document.querySelectorAll('.card');
+    if (cards[projectToSelect]) {
+      selectCard(cards[projectToSelect], tools[projectToSelect]);
+    }
   }
 })();
   
