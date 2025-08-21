@@ -123,20 +123,20 @@ body {
 }
 
 .card .emoji { 
-  font-size: 16px; 
+  font-size: 14px; 
   margin: 0;
   flex-shrink: 0;
 }
 
 .card h2 { 
-  font-size: 16px; 
+  font-size: 14px; 
   margin: 0; 
   font-weight: 500;
 }
 
 .card p { 
   margin: 0; 
-  color: #666; 
+  color: #666;
   font-size: 13px; 
   line-height: 1.4;
 }
