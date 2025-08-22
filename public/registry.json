@@ -72,6 +72,18 @@
       "muxPlaybackId": "insertIDHere"
     },
     {
+      "slug": "color-image-dither",
+      "name": "Color image dither",
+      "emoji": "📲",
+      "year": 2025,
+      "status": "wip",
+      "url": "",
+      "description": "Palette-aware image dithering.",
+      "outputs": ["image"],
+      "stack": [],
+      "muxPlaybackId": "insertIDHere"
+    },
+    {
       "slug": "image-dither",
       "name": "Image dither",
       "emoji": "📱",
@@ -153,18 +165,6 @@
       "url": "",
       "description": "Parameterized edits synced to audio.",
       "outputs": ["motion"],
-      "stack": [],
-      "muxPlaybackId": "insertIDHere"
-    },
-    {
-      "slug": "color-image-dither",
-      "name": "Color image dither",
-      "emoji": "📲",
-      "year": 2025,
-      "status": "wip",
-      "url": "",
-      "description": "Palette-aware image dithering.",
-      "outputs": ["image"],
       "stack": [],
       "muxPlaybackId": "insertIDHere"
     }

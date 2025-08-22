@@ -110,14 +110,22 @@ body {
 .card-grid {
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 0;
+}
+
+.card-divider {
+  height: 1px;
+  background: #f0f0f0;
+  margin: 0;
+  flex-shrink: 0;
 }
 
 .card {
   display: flex;
   flex-direction: column;
   gap: 8px;
-  padding: 16px;
+  padding: 20px;
+  margin: 8px 0;
   border-radius: var(--radius);
   background: #fff;
   border: none;
@@ -135,6 +143,19 @@ body {
   border-color: #374151;
   background: #e5e7eb;
   border-width: 2px;
+}
+
+.card.unclickable {
+  opacity: 0.6;
+  cursor: default;
+  filter: grayscale(30%);
+}
+
+.card.unclickable:hover {
+  background: #fff;
+  transform: none;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  border-color: #d1d5db;
 }
 
 .card .title-row {
@@ -160,6 +181,11 @@ body {
   color: #666;
   font-size: 13px; 
   line-height: 1.4;
+}
+
+/* Remove border from last card */
+.card:last-child {
+  border-bottom: none;
 }
 
 .meta {
@@ -249,6 +275,7 @@ body {
   display: flex;
   gap: 12px;
   margin-bottom: 20px;
+  align-items: center;
 }
 
 .preview-details .project-meta .badge {
@@ -258,13 +285,13 @@ body {
 
 .preview-details .project-link {
   display: inline-block;
-  padding: 8px 16px;
+  padding: 4px 10px;
   background: #f3f4f6;
   color: #6b7280;
   text-decoration: none;
   border-radius: var(--radius);
   font-weight: 400;
-  font-size: 14px;
+  font-size: 12px;
   transition: all 0.2s ease;
   border: 1px solid #e5e7eb;
 }
