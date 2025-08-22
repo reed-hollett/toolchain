@@ -27,7 +27,7 @@ body {
 /* Sidebar Styles */
 .sidebar {
   width: var(--sidebar-width);
-  background: #fff;
+  background: #ffffff;
   border-right: none;
   display: flex;
   flex-direction: column;
@@ -37,7 +37,7 @@ body {
 .sidebar-header {
   padding: 8px 24px 24px 24px;
   border-bottom: none;
-  background: #f8f9fa;
+  background: #ffffff;
   flex-shrink: 0;
   position: relative;
 }
@@ -97,7 +97,7 @@ body {
   flex: 1;
   overflow-y: auto;
   padding: 16px;
-  background: #fafafa;
+  background: #ffffff;
   /* Hide scrollbar for webkit browsers */
   scrollbar-width: none; /* Firefox */
   -ms-overflow-style: none; /* IE and Edge */
@@ -185,7 +185,7 @@ body {
   display: flex;
   align-items: flex-start;
   justify-content: center;
-  padding: 40px 20px;
+  padding: 0px 10px;
   overflow-y: auto;
   height: 100vh;
 }
@@ -194,6 +194,7 @@ body {
   width: 100%;
   text-align: center;
   min-height: 100%;
+  padding: 0px;
 }
 
 .loading-state {
@@ -228,7 +229,7 @@ body {
 
 .preview-details {
   text-align: left;
-  margin-top: 24px;
+  margin-top: 16px;
 }
 
 .preview-details h3 {
@@ -258,21 +259,24 @@ body {
 .preview-details .project-link {
   display: inline-block;
   padding: 8px 16px;
-  background: #000;
-  color: white;
+  background: #f3f4f6;
+  color: #6b7280;
   text-decoration: none;
   border-radius: var(--radius);
-  font-weight: 500;
+  font-weight: 400;
   font-size: 14px;
-  transition: background 0.2s ease;
+  transition: all 0.2s ease;
+  border: 1px solid #e5e7eb;
 }
 
 .preview-details .project-link:hover {
-  background: #333;
+  background: #e5e7eb;
+  color: #374151;
+  border-color: #d1d5db;
 }
 
 .project-iframe {
-  margin-top: 32px;
+  margin-top: 16px;
   padding: 2px;
   background: #f8f9fa;
   border-radius: 8px;
@@ -280,7 +284,7 @@ body {
 
 .project-iframe iframe {
   width: 100%;
-  height: 600px;
+  height: 800px;
   border: none;
   border-radius: 8px;
   background: white;

@@ -22,8 +22,189 @@
   function updatePreview(tool) {
     let previewContent = '';
     
-    // Always show the project details first
-    previewContent = `
+    // Show iframes first (if they exist)
+    if (tool.slug === 'type-dither') {
+      previewContent += `
+        <div class="project-iframe">
+          <iframe 
+            src="https://www.type-tools.com/dither/dither.html" 
+            width="100%" 
+            height="800" 
+            frameborder="0"
+            style="border-radius: var(--radius); border: 1px solid #e5e7eb;"
+            title="Type Dither Tool">
+          </iframe>
+        </div>
+      `;
+    }
+    
+    if (tool.slug === 'type-blur') {
+      previewContent += `
+        <div class="project-iframe">
+          <iframe 
+            src="https://www.type-tools.com/blur/blur.html" 
+            width="100%" 
+            height="800" 
+            frameborder="0"
+            style="border-radius: var(--radius); border: 1px solid #e5e7eb;"
+            title="Type Blur Tool">
+          </iframe>
+        </div>
+      `;
+    }
+    
+    if (tool.slug === 'type-slice') {
+      previewContent += `
+        <div class="project-iframe">
+          <iframe 
+            src="https://www.type-tools.com/slice/slice.html" 
+            width="100%" 
+            height="800" 
+            frameborder="0"
+            style="border-radius: var(--radius); border: 1px solid #e5e7eb;"
+            title="Type Slice Tool">
+          </iframe>
+        </div>
+      `;
+    }
+    
+    if (tool.slug === 'type-line') {
+      previewContent += `
+        <div class="project-iframe">
+          <iframe 
+            src="https://www.type-tools.com/line/line.html" 
+            width="100%" 
+            height="800" 
+            frameborder="0"
+            style="border-radius: var(--radius); border: 1px solid #e5e7eb;"
+            title="Type Line Tool">
+          </iframe>
+        </div>
+      `;
+    }
+    
+    if (tool.slug === 'type-type') {
+      previewContent += `
+        <div class="project-iframe">
+          <iframe 
+            src="https://www.type-tools.com/type/type.html" 
+            width="100%" 
+            height="800" 
+            frameborder="0"
+            style="border-radius: var(--radius); border: 1px solid #e5e7eb;"
+            title="Type Type Tool">
+          </iframe>
+        </div>
+      `;
+    }
+    
+    if (tool.slug === 'type-gravity') {
+      previewContent += `
+        <div class="project-iframe">
+          <iframe 
+            src="https://poster-tools.vercel.app/" 
+            width="100%" 
+            height="800" 
+            frameborder="0"
+            style="border-radius: var(--radius); border: 1px solid #e5e7eb;"
+            title="Type Gravity Tool">
+          </iframe>
+        </div>
+      `;
+    }
+    
+    if (tool.slug === 'poster-gradient') {
+      previewContent += `
+        <div class="project-iframe">
+          <iframe 
+            src="https://poster-works.vercel.app/" 
+            width="100%" 
+            height="800" 
+            frameborder="0"
+            style="border-radius: var(--radius); border: 1px solid #e5e7eb;"
+            title="Poster Gradient Tool">
+          </iframe>
+        </div>
+      `;
+    }
+    
+    if (tool.slug === 'hotel-dust') {
+      previewContent += `
+        <div class="iframe">
+          <iframe 
+            src="https://hotel-dust.vercel.app/" 
+            width="100%" 
+            height="800" 
+            frameborder="0"
+            style="border-radius: var(--radius); border: 1px solid #e5e7eb;"
+            title="Hotel Dust Tool">
+          </iframe>
+        </div>
+      `;
+    }
+    
+    if (tool.slug === 'border-gen') {
+      previewContent += `
+        <div class="project-iframe">
+          <iframe 
+            src="https://preview--border-bloom-canvas-creator.lovable.app/" 
+            width="100%" 
+            height="800" 
+            frameborder="0"
+            style="border-radius: var(--radius); border: 1px solid #e5e7eb;"
+            title="Border Generator Tool">
+          </iframe>
+        </div>
+      `;
+    }
+    
+    if (tool.slug === 'color-image-dither') {
+      previewContent += `
+        <div class="project-iframe">
+          <iframe 
+            src="https://preview--vibrant-image-weaver.lovable.app/" 
+            width="100%" 
+            height="800" 
+            frameborder="0"
+            style="border-radius: var(--radius); border: 1px solid #e5e7eb;"
+            title="Vibrant Image Weaver Tool">
+          </iframe>
+        </div>
+      `;
+    }
+    
+    if (tool.slug === 'image-dither') {
+      previewContent += `
+        <div class="project-iframe">
+          <iframe 
+            src="https://poster-tools.vercel.app/" 
+            width="100%" 
+            height="800" 
+            frameborder="0"
+            style="border-radius: var(--radius); border: 1px solid #e5e7eb;"
+            title="Poster Tools - Image Dither">
+          </iframe>
+        </div>
+      `;
+    }
+    
+    if (tool.slug === 'cocoon') {
+      previewContent += `
+        <div class="project-iframe">
+          <iframe 
+            src="https://poster-tools.vercel.app/" 
+            width="100%" 
+            height="800" 
+            frameborder="0"
+            style="border-radius: var(--radius); border: 1px solid #e5e7eb;"
+            title="Poster Tools - Cocoon">
+          </iframe>
+        </div>
+      `;
+    }
+    
+    // Show project details below iframes
+    previewContent += `
       <div class="preview-details">
         <h3>${tool.name}</h3>
         <p>${tool.description}</p>
