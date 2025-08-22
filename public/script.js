@@ -1,10 +1,4 @@
 (async function () {
-  // Check if mux-player custom element is available
-  if (customElements.get('mux-player')) {
-    console.log('✅ mux-player custom element available for videos');
-  } else {
-    console.log('❌ mux-player custom element not available, videos will show as placeholders');
-  }
 
   const res = await fetch('registry.json');
   const tools = await res.json();
@@ -28,41 +22,8 @@
   function updatePreview(tool) {
     let previewContent = '';
     
-    if (tool.muxPlaybackId && customElements.get('mux-player')) {
-      // Show video player for projects with MUX playback ID
-      previewContent = `
-        <mux-player 
-          id="mux-player"
-          playback-id="${tool.muxPlaybackId}"
-          style="width: 100%; height: auto; border-radius: var(--radius);"
-          autoplay
-          loop
-          muted
-          controls="false"
-          preload="auto"
-          hide-controls
-          hide-timeline
-          hide-play-button
-          hide-volume
-          hide-fullscreen
-          no-controls
-          no-timeline
-          no-play-button
-          no-volume
-          no-fullscreen>
-        </mux-player>
-      `;
-    } else {
-      // Show placeholder video player for projects without MUX playback ID or if MUX is not available
-      previewContent = `
-        <div class="video-placeholder" style="width: 100%; height: 400px; background: #f3f4f6; border-radius: var(--radius); display: flex; align-items: center; justify-content: center; color: #6b7280; font-size: 18px;">
-          ${tool.muxPlaybackId ? 'Video loading...' : 'Video preview coming soon'}
-        </div>
-      `;
-    }
-    
-    // Always show the project details below the preview/video
-    previewContent += `
+    // Always show the project details first
+    previewContent = `
       <div class="preview-details">
         <h3>${tool.name}</h3>
         <p>${tool.description}</p>
@@ -219,6 +180,54 @@
       `;
     }
     
+    // Add iframe for color-image-dither project
+    if (tool.slug === 'color-image-dither') {
+      previewContent += `
+        <div class="project-iframe">
+          <iframe 
+            src="https://preview--vibrant-image-weaver.lovable.app/" 
+            width="100%" 
+            height="600" 
+            frameborder="0"
+            style="border-radius: var(--radius); border: 1px solid #e5e7eb;"
+            title="Vibrant Image Weaver Tool">
+          </iframe>
+        </div>
+      `;
+    }
+    
+    // Add iframe for image-dither project
+    if (tool.slug === 'image-dither') {
+      previewContent += `
+        <div class="project-iframe">
+          <iframe 
+            src="https://poster-tools.vercel.app/" 
+            width="100%" 
+            height="600" 
+            frameborder="0"
+            style="border-radius: var(--radius); border: 1px solid #e5e7eb;"
+            title="Poster Tools - Image Dither">
+          </iframe>
+        </div>
+      `;
+    }
+    
+    // Add iframe for cocoon project
+    if (tool.slug === 'cocoon') {
+      previewContent += `
+        <div class="project-iframe">
+          <iframe 
+            src="https://poster-tools.vercel.app/" 
+            width="100%" 
+            height="600" 
+            frameborder="0"
+            style="border-radius: var(--radius); border: 1px solid #e5e7eb;"
+            title="Poster Tools - Cocoon">
+          </iframe>
+        </div>
+      `;
+    }
+    
     document.getElementById('preview-content').innerHTML = previewContent;
   }
 
@@ -262,6 +271,18 @@
     if (cards[projectToSelect]) {
       selectCard(cards[projectToSelect], tools[projectToSelect]);
     }
+  }
+  
+  // Initialize page selector dropdown
+  initializePageSelector();
+  
+  function initializePageSelector() {
+    const pageSelector = document.querySelector('.page-selector');
+    pageSelector.addEventListener('change', (e) => {
+      if (e.target.value === 'gallery') {
+        window.location.href = 'index.html';
+      }
+    });
   }
 })();
   

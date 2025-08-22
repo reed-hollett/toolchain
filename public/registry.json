@@ -131,18 +131,7 @@
       "stack": [],
       "muxPlaybackId": "insertIDHere"
     },
-    {
-      "slug": "nacho-macho-taco",
-      "name": "Nacho macho taco",
-      "emoji": "🌮",
-      "year": 2023,
-      "status": "archive",
-      "url": "https://nachomachotaco.vercel.app",
-      "description": "Mini/microsite; included as an archive piece.",
-      "outputs": ["web"],
-      "stack": [],
-      "muxPlaybackId": "insertIDHere"
-    },
+
     {
       "slug": "3d-type-rotator",
       "name": "3D type rotator",

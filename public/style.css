@@ -35,36 +35,50 @@ body {
 }
 
 .sidebar-header {
-  padding: 24px;
+  padding: 8px 24px 24px 24px;
   border-bottom: none;
   background: #f8f9fa;
   flex-shrink: 0;
+  position: relative;
 }
 
-.sidebar-header h1 {
-  margin: 0 0 8px 0;
-  font-size: 14px;
-  font-weight: 600;
-  color: #666;
+.tools-dropdown {
+  display: flex;
+  align-items: center;
+  gap: 8px;
 }
 
-.sidebar-header p {
-  margin: 0 0 16px 0;
-  color: #666;
-  font-size: 14px;
-  line-height: 1.4;
-}
-
-.gallery-text {
-  color: #9ca3af;
+.tools-text {
+  font-size: 14.2848px;
   font-weight: 400;
+  color: #1E1E1E;
+  font-family: "Neue Haas Grotesk", Icons, sans-serif;
+}
+
+.page-selector {
+  font-size: 14.2848px;
+  font-weight: 400;
+  color: #9ca3af;
+  font-family: "Neue Haas Grotesk", Icons, sans-serif;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  outline: none;
+}
+
+.page-selector option {
+  color: #1E1E1E;
+  background: white;
 }
 
 .back-to-gallery {
-  display: inline-block;
+  position: absolute;
+  top: 8px;
+  right: 24px;
   color: #6b7280;
   text-decoration: none;
-  font-size: 12px;
+  font-size: 14px;
   font-weight: 400;
   padding: 6px 10px;
   border-radius: 4px;

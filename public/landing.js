@@ -64,28 +64,22 @@
       size: 'large'
     },
     {
-      src: 'images/Frame-9.png',
-      alt: 'Game Night',
-      projectSlug: 'nacho-macho-taco', // This will be updated based on your mapping
-      title: 'Game Night',
-      description: 'Nacho macho taco project',
-      size: 'medium'
-    },
-    {
       src: 'images/Frame-10.png',
       alt: 'Creative elegant geometric',
-      projectSlug: '3d-type-rotator', // This will be updated based on your mapping
+      projectSlug: null, // Unclickable - no project link
       title: 'Creative elegant geometric',
-      description: '3D type rotator project',
-      size: 'small'
+      description: '3D type rotator project (Coming Soon)',
+      size: 'small',
+      unclickable: true
     },
     {
       src: 'images/Frame-11.gif',
       alt: 'MBS Abstract',
-      projectSlug: 'blades-mv', // This will be updated based on your mapping
+      projectSlug: null, // Unclickable - no project link
       title: 'MBS Abstract',
-      description: 'Blades music video generator project',
-      size: 'large'
+      description: 'Blades music video generator project (Coming Soon)',
+      size: 'large',
+      unclickable: true
     },
     {
       src: 'images/Frame-12.png',
@@ -119,6 +113,14 @@
       title: '2025 Europe',
       description: 'Type dither project',
       size: 'small'
+    },
+    {
+      src: 'images/Cocoon.png',
+      alt: 'Cocoon',
+      projectSlug: 'type-cocoon', // This will be updated based on your mapping
+      title: 'Cocoon',
+      description: 'Cocoon project',
+      size: 'medium'
     }
   ];
 
@@ -140,6 +142,18 @@
   
   // Initialize infinite scrolling with random gradient maps
   initializeInfiniteScroll();
+  
+  // Initialize page selector dropdown
+  initializePageSelector();
+  
+  function initializePageSelector() {
+    const pageSelector = document.querySelector('.page-selector');
+    pageSelector.addEventListener('change', (e) => {
+      if (e.target.value === 'index') {
+        window.location.href = 'projects.html';
+      }
+    });
+  }
   
   function initializeInfiniteScroll() {
     const totalSets = 10; // Create 10 sets for infinite scrolling
@@ -212,13 +226,18 @@
           });
         });
         
-        // Add click handler
-        card.addEventListener('click', () => {
-          if (tool) {
-            sessionStorage.setItem('selectedProject', imageInfo.projectSlug);
-            window.location.href = 'projects.html';
-          }
-        });
+        // Add click handler only for clickable images
+        if (!imageInfo.unclickable) {
+          card.addEventListener('click', () => {
+            if (tool) {
+              sessionStorage.setItem('selectedProject', imageInfo.projectSlug);
+              window.location.href = 'projects.html';
+            }
+          });
+        } else {
+          // Add unclickable styling
+          card.classList.add('unclickable');
+        }
         
         imageGrid.appendChild(card);
       });

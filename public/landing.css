@@ -28,17 +28,34 @@ body {
   z-index: 100;
 }
 
-.landing-header h1 {
+.tools-dropdown {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.tools-text {
   font-size: 14.2848px;
   font-weight: 400;
-  margin: 0;
   color: #1E1E1E;
   font-family: "Neue Haas Grotesk", Icons, sans-serif;
 }
 
-.gallery-text {
-  color: #9ca3af;
+.page-selector {
+  font-size: 14.2848px;
   font-weight: 400;
+  color: #9ca3af;
+  font-family: "Neue Haas Grotesk", Icons, sans-serif;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  outline: none;
+}
+
+.page-selector option {
+  color: #1E1E1E;
+  background: white;
 }
 
 .landing-header p {
@@ -160,6 +177,22 @@ body {
 }
 
 
+
+/* Unclickable image styling */
+.image-card.unclickable {
+  opacity: 0.6;
+  cursor: default;
+  filter: grayscale(30%);
+}
+
+.image-card.unclickable:hover {
+  transform: none;
+}
+
+.image-card.unclickable .image-caption {
+  color: #9ca3af;
+  font-style: italic;
+}
 
 /* Responsive adjustments */
 @media (max-width: 768px) {
