@@ -130,6 +130,18 @@ body {
   margin-top: 8px;
 }
 
+.image-caption .made-with {
+  color: #9ca3af;
+}
+
+.image-caption .project-name {
+  color: #111;
+}
+
+.image-caption .project-name.unpublished {
+  color: #9ca3af;
+}
+
 .image-card:hover .image-caption {
   opacity: 1;
   transform: translateY(0);

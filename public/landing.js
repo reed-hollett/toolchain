@@ -10,67 +10,74 @@
     {
       src: 'images/Frame-1.png',
       alt: 'SPRUCE',
-      projectSlug: 'type-dither', // This will be updated based on your mapping
+      projectSlug: 'image-dither', // This will be updated based on your mapping
       title: 'SPRUCE',
-      description: 'Type dither project',
+      description: 'Image dither project',
       size: 'large' // large, medium, or small
     },
     {
       src: 'images/Frame-2.png',
       alt: 'Unique vivid',
-      projectSlug: 'type-line', // This will be updated based on your mapping
+      projectSlug: 'image-dither', // This will be updated based on your mapping
       title: 'Unique vivid',
-      description: 'Type line project',
+      description: 'Image dither project',
       size: 'medium'
     },
     {
       src: 'images/Frame-3.png',
       alt: 'WINTER',
-      projectSlug: 'type-slice', // This will be updated based on your mapping
+      projectSlug: 'image-dither', // This will be updated based on your mapping
       title: 'WINTER',
-      description: 'Type slice project',
+      description: 'Image dither project',
       size: 'small'
     },
     {
       src: 'images/Frame-5.png',
       alt: 'Ornate frame pattern',
-      projectSlug: 'border-gen', // This will be updated based on your mapping
+      projectSlug: 'type-dither', // This will be updated based on your mapping
       title: 'Ornate frame pattern',
-      description: 'Border generator project',
+      description: 'Type dither project',
       size: 'large'
     },
     {
       src: 'images/Frame-6.png',
       alt: 'Imagine light sharp texture',
-      projectSlug: 'poster-gradient', // This will be updated based on your mapping
+      projectSlug: 'type-gravity', // This will be updated based on your mapping
       title: 'Imagine light sharp texture',
-      description: 'Poster gradient project',
+      description: 'Type gravity project',
       size: 'medium'
     },
     {
       src: 'images/Frame-7.gif',
       alt: 'Info Poster Tools',
-      projectSlug: 'type-cocoon', // This will be updated based on your mapping
+      projectSlug: 'border-gen', // This will be updated based on your mapping
       title: 'Info Poster Tools',
-      description: 'Type cocoon project',
+      description: 'Border generator project',
       size: 'small'
     },
     {
       src: 'images/Frame-8.png',
       alt: 'House warming invitation',
-      projectSlug: 'hotel-dust', // This will be updated based on your mapping
+      projectSlug: 'poster-gradient', // This will be updated based on your mapping
       title: 'House warming invitation',
-      description: 'Hotel dust project',
+      description: 'Poster gradient project',
       size: 'large'
+    },
+    {
+      src: 'images/Frame-9.png',
+      alt: 'Frame 9',
+      projectSlug: 'type-blur', // This will be updated based on your mapping
+      title: 'Frame 9',
+      description: 'Type blur project',
+      size: 'medium'
     },
     {
       src: 'images/Frame-10.png',
       alt: 'Creative elegant geometric',
-      projectSlug: null, // Unclickable - no project link
+      projectSlug: 'type-blur', // This will be updated based on your mapping
       title: 'Creative elegant geometric',
-      description: '3D type rotator project (Coming Soon)',
-      size: 'small',
-      unclickable: true
+      description: 'Type blur project',
+      size: 'small'
     },
     {
       src: 'images/Frame-11.gif',
@@ -84,34 +91,50 @@
     {
       src: 'images/Frame-12.png',
       alt: 'Abstract pattern',
-      projectSlug: 'color-image-dither', // This will be updated based on your mapping
+      projectSlug: 'border-gen', // This will be updated based on your mapping
       title: 'Abstract pattern',
-      description: 'Color image dither project',
+      description: 'Border generator project',
       size: 'medium'
     },
 
     {
       src: 'images/Frame-14.png',
       alt: 'Trivia Night',
-      projectSlug: 'type-gravity', // This will be updated based on your mapping
+      projectSlug: 'border-gen', // This will be updated based on your mapping
       title: 'Trivia Night',
-      description: 'Type gravity project',
+      description: 'Border generator project',
       size: 'large'
     },
     {
       src: 'images/Frame.png',
       alt: 'Trivia Night 2',
-      projectSlug: 'type-type', // This will be updated based on your mapping
+      projectSlug: 'border-gen', // This will be updated based on your mapping
       title: 'Trivia Night 2',
-      description: 'Type type project',
+      description: 'Border generator project',
       size: 'medium'
     },
     {
       src: 'images/Frame 60.png',
       alt: '2025 Europe',
-      projectSlug: 'type-dither', // This will be updated based on your mapping
+      projectSlug: 'type-cocoon', // This will be updated based on your mapping
       title: '2025 Europe',
-      description: 'Type dither project',
+      description: 'Cocoon project',
+      size: 'small'
+    },
+    {
+      src: 'images/Frame 61.png',
+      alt: 'Frame 61',
+      projectSlug: 'type-cocoon', // This will be updated based on your mapping
+      title: 'Frame 61',
+      description: 'Cocoon project',
+      size: 'medium'
+    },
+    {
+      src: 'images/Frame 62.png',
+      alt: 'Frame 62',
+      projectSlug: 'type-cocoon', // This will be updated based on your mapping
+      title: 'Frame 62',
+      description: 'Cocoon project',
       size: 'small'
     },
     {
@@ -188,7 +211,7 @@
             <h3>${tool ? tool.name : imageInfo.title}</h3>
             <p>${tool ? tool.description : imageInfo.description}</p>
           </div>
-          <div class="image-caption">Explore the tool used to create this image</div>
+          <div class="image-caption"><span class="made-with">Made with</span> <span class="project-name ${tool ? '' : 'unpublished'}">${tool ? tool.name : 'unpublished tool'}</span>${tool ? ' ⟶' : ''}</div>
         `;
         
         // Apply the predefined gradient map for this set

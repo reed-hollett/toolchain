@@ -206,7 +206,7 @@
       `;
     }
     
-    if (tool.slug === 'cocoon') {
+    if (tool.slug === 'type-cocoon') {
       previewContent += `
         <div class="project-iframe">
           <iframe 
@@ -252,7 +252,7 @@
     el.dataset.toolIndex = index;
     
     // Check if project is clickable (has a URL or has an iframe)
-    const hasIframe = ['type-dither', 'type-blur', 'type-slice', 'type-line', 'type-type', 'type-gravity', 'poster-gradient', 'hotel-dust', 'border-gen', 'color-image-dither', 'image-dither', 'cocoon'].includes(t.slug);
+    const hasIframe = ['type-dither', 'type-blur', 'type-slice', 'type-line', 'type-type', 'type-gravity', 'poster-gradient', 'hotel-dust', 'border-gen', 'color-image-dither', 'image-dither', 'type-cocoon'].includes(t.slug);
     if ((!t.url || t.url === '') && !hasIframe) {
       el.classList.add('unclickable');
     }
