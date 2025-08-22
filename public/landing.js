@@ -134,16 +134,32 @@
 
   const shuffledImages = shuffleArray(imageData);
 
-  // Create infinite scrolling by duplicating images
-  function createInfiniteGrid() {
-    // Clear existing content
-    imageGrid.innerHTML = '';
+
+
+
+  
+  // Initialize infinite scrolling with random gradient maps
+  initializeInfiniteScroll();
+  
+  function initializeInfiniteScroll() {
+    const totalSets = 10; // Create 10 sets for infinite scrolling
     
-    // Create multiple sets of shuffled images for infinite scroll
-    const numberOfSets = 3; // This creates 3 full sets of images
+    // Predefined gradient maps for each set
+    const gradientMaps = [
+      null, // First set: no filter
+      'hue-rotate(0deg) saturate(2) brightness(1.1)', // Second set: red/orange
+      'hue-rotate(180deg) saturate(2) brightness(1.1)', // Third set: cyan
+      'hue-rotate(240deg) saturate(2) brightness(1.1)', // Fourth set: blue
+      'hue-rotate(120deg) saturate(2) brightness(1.1)', // Fifth set: green
+      'hue-rotate(60deg) saturate(2) brightness(1.1)', // Sixth set: yellow
+      'hue-rotate(300deg) saturate(2) brightness(1.1)', // Seventh set: magenta
+      'hue-rotate(90deg) saturate(1.8) brightness(0.9)', // Eighth set: teal
+      'hue-rotate(150deg) saturate(1.5) brightness(1.2)', // Ninth set: lime
+      'hue-rotate(270deg) saturate(1.7) brightness(0.8)' // Tenth set: purple
+    ];
     
-    for (let set = 0; set < numberOfSets; set++) {
-      const setImages = shuffleArray([...imageData]); // Shuffle each set differently
+    function createImageSet(setIndex) {
+      const setImages = shuffleArray([...imageData]);
       
       setImages.forEach((imageInfo) => {
         const card = document.createElement('div');
@@ -161,41 +177,61 @@
           <div class="image-caption">Explore the tool used to create this image</div>
         `;
         
-            // Add hover effects
-    card.addEventListener('mouseenter', () => {
-      // Add blur effect to all other images
-      document.querySelectorAll('.image-card img').forEach(img => {
-        if (img !== card.querySelector('img')) {
-          img.style.filter = 'grayscale(100%) brightness(0.7) blur(8px)';
-          img.style.opacity = '0.2';
+        // Apply the predefined gradient map for this set
+        if (gradientMaps[setIndex]) {
+          const img = card.querySelector('img');
+          img.style.filter = gradientMaps[setIndex];
         }
-      });
-    });
-    
-    card.addEventListener('mouseleave', () => {
-      // Remove blur effect from all images
-      document.querySelectorAll('.image-card img').forEach(img => {
-        img.style.filter = '';
-        img.style.opacity = '';
-      });
-    });
-    
-    // Add click handler to navigate to the project
-    card.addEventListener('click', () => {
-      if (tool) {
-        // Store the selected project in sessionStorage and redirect to the main app
-        sessionStorage.setItem('selectedProject', imageInfo.projectSlug);
-        window.location.href = 'projects.html';
-      }
-    });
-    
-    imageGrid.appendChild(card);
+        
+        // Add hover effects
+        card.addEventListener('mouseenter', () => {
+          document.querySelectorAll('.image-card img').forEach(img => {
+            if (img !== card.querySelector('img')) {
+              img.style.filter = 'grayscale(100%) brightness(0.8) blur(3px)';
+              img.style.opacity = '0.4';
+            }
+          });
+        });
+        
+        card.addEventListener('mouseleave', () => {
+          // Restore the original filter for this set
+          const img = card.querySelector('img');
+          if (gradientMaps[setIndex]) {
+            img.style.filter = gradientMaps[setIndex];
+          } else {
+            img.style.filter = '';
+          }
+          img.style.opacity = '';
+          
+          // Restore other images
+          document.querySelectorAll('.image-card img').forEach(otherImg => {
+            if (otherImg !== img) {
+              otherImg.style.filter = '';
+              otherImg.style.opacity = '';
+            }
+          });
+        });
+        
+        // Add click handler
+        card.addEventListener('click', () => {
+          if (tool) {
+            sessionStorage.setItem('selectedProject', imageInfo.projectSlug);
+            window.location.href = 'projects.html';
+          }
+        });
+        
+        imageGrid.appendChild(card);
       });
     }
+    
+    // Create initial set (set 0 - no filter)
+    createImageSet(0);
+    
+    // Create additional sets as user scrolls
+    for (let i = 1; i < totalSets; i++) {
+      setTimeout(() => {
+        createImageSet(i);
+      }, i * 1000); // Stagger creation
+    }
   }
-
-  // Initialize the infinite grid
-  createInfiniteGrid();
-
-
 })(); 

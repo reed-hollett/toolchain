@@ -159,6 +159,8 @@ body {
   line-height: 1.4;
 }
 
+
+
 /* Responsive adjustments */
 @media (max-width: 768px) {
   .landing-container {
@@ -191,6 +193,17 @@ body {
   .image-card--small {
     grid-column: span 2;
     grid-row: span 1;
+  }
+  
+  .gradient-controls {
+    top: 16px;
+    right: 16px;
+    gap: 6px;
+  }
+  
+  .control-button {
+    width: 16px;
+    height: 16px;
   }
 }
 
