@@ -130,14 +130,6 @@
       size: 'medium'
     },
     {
-      src: 'images/Frame 62.png',
-      alt: 'Frame 62',
-      projectSlug: 'type-cocoon', // This will be updated based on your mapping
-      title: 'Frame 62',
-      description: 'Cocoon project',
-      size: 'small'
-    },
-    {
       src: 'images/Cocoon.png',
       alt: 'Cocoon',
       projectSlug: 'type-cocoon', // This will be updated based on your mapping

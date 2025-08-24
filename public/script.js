@@ -228,7 +228,7 @@
           <span class="badge">${tool.year}</span>
           ${tool.status ? `<span class="badge">${tool.status}</span>` : ""}
           ${Array.isArray(tool.outputs) ? tool.outputs.map(o => `<span class="badge">${o}</span>`).join("") : ""}
-          ${tool.url ? `<a href="${tool.url}" target="_blank" class="project-link">Visit Project →</a>` : ''}
+                          ${tool.url ? `<a href="${tool.url}" target="_blank" class="project-link">Open in a new tab</a>` : ''}
         </div>
       </div>
     `;
