@@ -5,27 +5,36 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Toolchain</title>
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='45' fill='white'/></svg>">
-  <link rel="stylesheet" href="landing.css">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-                <header class="landing-header">
-            <div class="tools-dropdown">
-              <span class="tools-text">Tools</span>
-              <select class="page-selector">
-                <option value="gallery">Gallery</option>
-                <option value="index">Index</option>
-              </select>
-            </div>
-          </header>
-  
-      <main class="image-grid-container">
-      <div id="image-grid" class="image-grid">
-        <!-- Images will be populated by JavaScript -->
+  <div class="container">
+    <header class="header">
+      <a href="https://reedhollett.com" class="back-link">Back</a>
+      <nav class="nav">
+        <a href="#" class="nav-link active">Index</a>
+        <a href="projects.html" class="nav-link">Gallery</a>
+      </nav>
+    </header>
+
+    <div class="content">
+      <div class="sidebar">
+        <div class="intro">
+          <p>Toolchain is a series of online generative design tools. These tools were coded using AI-enabled tools, starting with ChatGPT in 2022.</p>
+          <p>Further exploration of specialized products like Lovable, Cursor, Firebase, Codex, Gemini Canvas, Github, and V0 (Vercel).</p>
+        </div>
+
+        <div class="projects-list" id="projects-list">
+          <!-- Projects will be populated by JavaScript -->
+        </div>
       </div>
-    </main>
-    
+    </div>
 
+    <footer class="footer">
+      <p>Last updated: Sept 3, 2025</p>
+    </footer>
+  </div>
 
-  <script src="landing.js" defer></script>
+  <script src="script.js" defer></script>
 </body>
 </html> 

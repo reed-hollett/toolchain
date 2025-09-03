@@ -19,33 +19,22 @@
   </script>
 </head>
 <body>
-  <div class="container">
-    <aside class="sidebar">
-      <header class="sidebar-header">
-        <div class="tools-dropdown">
-          <span class="tools-text">Tools</span>
-          <select class="page-selector">
-            <option value="gallery">Gallery</option>
-            <option value="index" selected>Index</option>
-          </select>
-        </div>
-      </header>
-      
-      <nav class="sidebar-nav">
-        <div id="grid" class="card-grid"></div>
+  <div class="container gallery">
+    <header class="header">
+      <a href="https://reedhollett.com" class="back-link">Back</a>
+      <nav class="nav">
+        <a href="index.html" class="nav-link">Index</a>
+        <a href="#" class="nav-link active">Gallery</a>
       </nav>
-    </aside>
+    </header>
 
-    <main class="preview-area">
-      <div id="preview-content" class="preview-content">
-        <div class="loading-state">
-          <div class="loading-spinner"></div>
-          <p>Loading projects...</p>
-        </div>
+    <div class="content">
+      <div class="sidebar">
+        <div id="grid" class="image-grid"></div>
       </div>
-    </main>
+    </div>
   </div>
 
-  <script src="script.js" defer></script>
+  <script src="landing.js" defer></script>
 </body>
 </html>

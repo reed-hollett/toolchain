@@ -3,7 +3,7 @@
   const res = await fetch('registry.json');
   const tools = await res.json();
 
-  const imageGrid = document.getElementById('image-grid');
+  const imageGrid = document.getElementById('grid');
   
   // Image data - using the actual images you have
   const imageData = [
@@ -155,98 +155,32 @@
 
 
   
-  // Initialize infinite scrolling with random gradient maps
-  initializeInfiniteScroll();
+  // Initialize simple image grid
+  initializeSimpleGrid();
   
-  // Initialize page selector dropdown
-  initializePageSelector();
-  
-  function initializePageSelector() {
-    const pageSelector = document.querySelector('.page-selector');
-    pageSelector.addEventListener('change', (e) => {
-      if (e.target.value === 'index') {
-        window.location.href = 'projects.html';
-      }
-    });
-  }
-  
-  function initializeInfiniteScroll() {
-    const totalSets = 10; // Create 10 sets for infinite scrolling
+  function initializeSimpleGrid() {
+    // Shuffle the image data for random order
+    const shuffledImages = shuffleArray([...imageData]);
     
-    // Predefined gradient maps for each set
-    const gradientMaps = [
-      null, // First set: no filter
-      'hue-rotate(0deg) saturate(2) brightness(1.1)', // Second set: red/orange
-      'hue-rotate(180deg) saturate(2) brightness(1.1)', // Third set: cyan
-      'hue-rotate(240deg) saturate(2) brightness(1.1)', // Fourth set: blue
-      'hue-rotate(120deg) saturate(2) brightness(1.1)', // Fifth set: green
-      'hue-rotate(60deg) saturate(2) brightness(1.1)', // Sixth set: yellow
-      'hue-rotate(300deg) saturate(2) brightness(1.1)', // Seventh set: magenta
-      'hue-rotate(90deg) saturate(1.8) brightness(0.9)', // Eighth set: teal
-      'hue-rotate(150deg) saturate(1.5) brightness(1.2)', // Ninth set: lime
-      'hue-rotate(270deg) saturate(1.7) brightness(0.8)' // Tenth set: purple
-    ];
+    // Create multiple sets for infinite scrolling
+    const totalSets = 5;
     
-    function createImageSet(setIndex) {
-      const setImages = shuffleArray([...imageData]);
-      
-      setImages.forEach((imageInfo) => {
+    for (let setIndex = 0; setIndex < totalSets; setIndex++) {
+      shuffledImages.forEach((imageInfo) => {
         const card = document.createElement('div');
-        card.className = `image-card image-card--${imageInfo.size}`;
+        card.className = 'image-card';
         
         // Find the corresponding tool data
         const tool = tools.find(t => t.slug === imageInfo.projectSlug);
         
-        card.innerHTML = `
-          <img src="${imageInfo.src}" alt="${imageInfo.alt}" loading="lazy">
-          <div class="image-overlay">
-            <h3>${tool ? tool.name : imageInfo.title}</h3>
-            <p>${tool ? tool.description : imageInfo.description}</p>
-          </div>
-          <div class="image-caption"><span class="made-with">Made with</span> <span class="project-name ${tool ? '' : 'unpublished'}">${tool ? tool.name : 'unpublished tool'}</span>${tool ? ' ⟶' : ''}</div>
-        `;
-        
-        // Apply the predefined gradient map for this set
-        if (gradientMaps[setIndex]) {
-          const img = card.querySelector('img');
-          img.style.filter = gradientMaps[setIndex];
-        }
-        
-        // Add hover effects
-        card.addEventListener('mouseenter', () => {
-          document.querySelectorAll('.image-card img').forEach(img => {
-            if (img !== card.querySelector('img')) {
-              img.style.filter = 'grayscale(100%) brightness(0.8) blur(3px)';
-              img.style.opacity = '0.4';
-            }
-          });
-        });
-        
-        card.addEventListener('mouseleave', () => {
-          // Restore the original filter for this set
-          const img = card.querySelector('img');
-          if (gradientMaps[setIndex]) {
-            img.style.filter = gradientMaps[setIndex];
-          } else {
-            img.style.filter = '';
-          }
-          img.style.opacity = '';
-          
-          // Restore other images
-          document.querySelectorAll('.image-card img').forEach(otherImg => {
-            if (otherImg !== img) {
-              otherImg.style.filter = '';
-              otherImg.style.opacity = '';
-            }
-          });
-        });
+        card.innerHTML = `<img src="${imageInfo.src}" alt="${imageInfo.alt}" loading="lazy">`;
         
         // Add click handler only for clickable images
         if (!imageInfo.unclickable) {
           card.addEventListener('click', () => {
             if (tool) {
               sessionStorage.setItem('selectedProject', imageInfo.projectSlug);
-              window.location.href = 'projects.html';
+              window.location.href = 'index.html';
             }
           });
         } else {
@@ -258,14 +192,53 @@
       });
     }
     
-    // Create initial set (set 0 - no filter)
-    createImageSet(0);
+    // Add infinite scroll detection
+    initializeInfiniteScroll();
+  }
+  
+  function initializeInfiniteScroll() {
+    const imageGrid = document.getElementById('grid');
     
-    // Create additional sets as user scrolls
-    for (let i = 1; i < totalSets; i++) {
-      setTimeout(() => {
-        createImageSet(i);
-      }, i * 1000); // Stagger creation
-    }
+    imageGrid.addEventListener('scroll', () => {
+      // Check if user has scrolled near the bottom
+      const scrollTop = imageGrid.scrollTop;
+      const scrollHeight = imageGrid.scrollHeight;
+      const clientHeight = imageGrid.clientHeight;
+      
+      // If scrolled to within 1000px of the bottom, add more images
+      if (scrollTop + clientHeight >= scrollHeight - 1000) {
+        addMoreImages();
+      }
+    });
+  }
+  
+  function addMoreImages() {
+    // Shuffle and add another set of images
+    const shuffledImages = shuffleArray([...imageData]);
+    
+    shuffledImages.forEach((imageInfo) => {
+      const card = document.createElement('div');
+      card.className = 'image-card';
+      
+      // Find the corresponding tool data
+      const tool = tools.find(t => t.slug === imageInfo.projectSlug);
+      
+      card.innerHTML = `<img src="${imageInfo.src}" alt="${imageInfo.alt}" loading="lazy">`;
+      
+      // Add click handler only for clickable images
+      if (!imageInfo.unclickable) {
+        card.addEventListener('click', () => {
+          if (tool) {
+            sessionStorage.setItem('selectedProject', imageInfo.projectSlug);
+            window.location.href = 'index.html';
+          }
+        });
+      } else {
+        // Add unclickable styling
+        card.classList.add('unclickable');
+      }
+      
+      imageGrid.appendChild(card);
+    });
   }
 })(); 
