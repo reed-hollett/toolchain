@@ -102,7 +102,7 @@
       "year": 2025,
       "status": "lab",
       "url": "https://preview--border-bloom-canvas-creator.lovable.app/",
-      "description": "Generates decorative borders/frames with adjustable rules (thickness, pattern, corner style).",
+      "description": "Generates decorative typographic frames with adjustable controls.",
       "outputs": ["image", "motion"],
       "stack": ["Lovable"],
       "muxPlaybackId": "GrOo8pPLnMxQph5rwLX2BQL8MVjEawf2xli3p9wcePM"
@@ -114,7 +114,7 @@
       "year": 2024,
       "status": "lab",
       "url": "https://poster-works.vercel.app/",
-      "description": "Builds candy-like poster gradients with optional grain and palette control.",
+      "description": "Builds poster with a range of gradient patterns with adjustable type.",
       "outputs": ["image"],
       "stack": ["Cursor", "Lovable"],
       "muxPlaybackId": "HQplw6BvEQmxQFVBAEEe700PjBnnaB3mlTklnPBvGMJU"
