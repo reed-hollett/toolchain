@@ -210,13 +210,11 @@
         logoDisplay.innerHTML = `<img src="images/AI Code Gen Logos/${logoFile}" alt="${toolName.textContent} logo">`;
         logoDisplay.classList.add('show');
         
-        // Add loaded class to image for fade-in effect
+        // Show image immediately without fade-in
         const img = logoDisplay.querySelector('img');
         if (img) {
           img.onload = () => {
-            setTimeout(() => {
-              img.classList.add('loaded');
-            }, 100);
+            img.classList.add('loaded');
           };
         }
         
