@@ -25,6 +25,33 @@ body {
   min-height: 100vh;
 }
 
+/* Logo Display */
+.logo-display {
+  position: fixed;
+  top: 0;
+  right: 0;
+  max-height: 300px;
+  width: auto;
+  background: transparent;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-end;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: 200;
+  padding: 20px;
+}
+
+.logo-display.show {
+  opacity: 1;
+}
+
+.logo-display img {
+  max-height: 300px;
+  width: auto;
+  object-fit: contain;
+}
+
 /* Header Styles */
 .header {
   display: flex;
@@ -117,6 +144,17 @@ body {
   margin-bottom: 0;
 }
 
+.tool-name {
+  cursor: pointer;
+  text-decoration: underline;
+  text-decoration-color: transparent;
+  transition: text-decoration-color 0.2s ease;
+}
+
+.tool-name:hover {
+  text-decoration-color: var(--text-color);
+}
+
 /* Projects List Styles */
 .projects-list {
   display: flex;
@@ -197,6 +235,7 @@ body {
   margin-top: 16px;
   width: 100%;
   display: none;
+  padding-left: 40px;
 }
 
 .project-item.expanded .project-details {
@@ -207,15 +246,15 @@ body {
   font-size: 14px;
   line-height: 1.5;
   color: var(--text-color);
-  margin-bottom: 12px;
+  margin-bottom: 0;
 }
 
 .project-link {
-  font-size: 12px;
+  font-size: 14px;
   color: var(--text-light);
   text-decoration: none;
   margin-bottom: 16px;
-  display: inline-block;
+  display: block;
 }
 
 .project-link:hover {
@@ -225,17 +264,20 @@ body {
 .project-meta {
   display: flex;
   flex-direction: column;
-  gap: 4px;
+  gap: 0px;
 }
 
 .meta-item {
   display: flex;
-  justify-content: space-between;
   font-size: 12px;
+  margin-bottom: 0px;
 }
 
 .meta-label {
   color: var(--text-light);
+  margin-right: 24px;
+  min-width: 60px;
+  flex-shrink: 0;
 }
 
 .meta-value {

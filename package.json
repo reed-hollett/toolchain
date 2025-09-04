@@ -5,7 +5,8 @@
   "main": "public/index.html",
   "scripts": {
     "start": "npx http-server public -p 3000 -o",
-    "dev": "npx http-server public -p 3000 -o -c-1"
+    "dev": "npx http-server public -p 3000 -o -c-1",
+    "live": "live-server public --port=3000 --open=/index.html"
   },
   "keywords": [
     "design",
@@ -16,5 +17,8 @@
   "license": "MIT",
   "dependencies": {
     "mux-embed": "^5.11.0"
+  },
+  "devDependencies": {
+    "live-server": "^1.2.2"
   }
 }

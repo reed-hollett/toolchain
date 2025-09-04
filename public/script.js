@@ -2,6 +2,24 @@
   const res = await fetch('registry.json');
   const tools = await res.json();
 
+  // Logo hover functionality
+  const logoDisplay = document.getElementById('logo-display');
+  const toolNames = document.querySelectorAll('.tool-name');
+
+  toolNames.forEach(toolName => {
+    toolName.addEventListener('mouseenter', () => {
+      const logoFile = toolName.getAttribute('data-logo');
+      if (logoFile) {
+        logoDisplay.innerHTML = `<img src="images/AI Code Gen Logos/${logoFile}" alt="${toolName.textContent} logo">`;
+        logoDisplay.classList.add('show');
+      }
+    });
+
+    toolName.addEventListener('mouseleave', () => {
+      logoDisplay.classList.remove('show');
+    });
+  });
+
   const projectsList = document.getElementById('projects-list');
   let expandedProject = null;
 
