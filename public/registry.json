@@ -1,5 +1,17 @@
 [
     {
+      "slug": "type-dither",
+      "name": "Type dither",
+      "emoji": "🪩",
+      "year": 2023,
+      "status": "stable",
+      "url": "https://typedither.vercel.app",
+      "description": "Dithers negative/positive space of text; control weight, size, and pixel size.",
+      "outputs": ["motion", "image", "interactive"],
+      "stack": ["ChatGPT"],
+      "muxPlaybackId": "s1wi900uaANFE2E6k4Wsyf00bKsIqb02r5ns3puCqWK55w"
+    },
+    {
       "slug": "type-blur",
       "name": "Type blur",
       "emoji": "🌫️",
@@ -10,18 +22,6 @@
       "outputs": ["image", "interactive"],
       "stack": ["Cursor"],
       "muxPlaybackId": "insertIDHere"
-    },
-    {
-      "slug": "type-dither",
-      "name": "Type dither",
-      "emoji": "🪩",
-      "year": 2023,
-      "status": "stable",
-      "url": "https://typedither.vercel.app",
-      "description": "Dithers negative/positive space of text; control weight, size, and pixel size.",
-      "outputs": ["motion", "image", "interactive"],
-      "stack": ["Cursor"],
-      "muxPlaybackId": "s1wi900uaANFE2E6k4Wsyf00bKsIqb02r5ns3puCqWK55w"
     },
     {
       "slug": "type-line",
@@ -80,7 +80,7 @@
       "url": "https://colorimagedither.vercel.app",
       "description": "Palette-aware image dithering.",
       "outputs": ["image"],
-      "stack": [],
+      "stack": ["Lovable"],
       "muxPlaybackId": "insertIDHere"
     },
     {
@@ -97,14 +97,14 @@
     },
     {
       "slug": "border-gen",
-      "name": "Border generator",
+      "name": "Border Gen",
       "emoji": "🖼️",
       "year": 2025,
       "status": "lab",
       "url": "https://bordergen.vercel.app",
       "description": "Generates decorative borders/frames with adjustable rules (thickness, pattern, corner style).",
       "outputs": ["image"],
-      "stack": [],
+      "stack": ["Lovable"],
       "muxPlaybackId": "insertIDHere"
     },
     {
@@ -116,7 +116,7 @@
       "url": "https://postergradient.vercel.app",
       "description": "Builds candy-like poster gradients with optional grain and palette control.",
       "outputs": ["image"],
-      "stack": [],
+      "stack": ["Cursor", "Lovable"],
       "muxPlaybackId": "insertIDHere"
     },
     {
@@ -127,18 +127,6 @@
       "status": "lab",
       "url": "https://typecocoon.vercel.app",
       "description": "Wraps letterforms in filament/mesh; density and thread thickness controls.",
-      "outputs": ["image"],
-      "stack": [],
-      "muxPlaybackId": "insertIDHere"
-    },
-    {
-      "slug": "hotel-dust",
-      "name": "Hotel dust",
-      "emoji": "💐",
-      "year": 2024,
-      "status": "lab",
-      "url": "https://hoteldust.vercel.app",
-      "description": "Applies noisy filmic overlays and bloom for posters/photos; adjustable dust, scratch, and bloom.",
       "outputs": ["image"],
       "stack": [],
       "muxPlaybackId": "insertIDHere"

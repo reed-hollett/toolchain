@@ -146,13 +146,13 @@ body {
 
 .tool-name {
   cursor: pointer;
-  text-decoration: underline;
-  text-decoration-color: transparent;
-  transition: text-decoration-color 0.2s ease;
+  transition: color 0.2s ease;
+  color: var(--text-color);
+  text-decoration: none;
 }
 
 .tool-name:hover {
-  text-decoration-color: var(--text-color);
+  color: var(--text-light);
 }
 
 /* Projects List Styles */
@@ -224,7 +224,7 @@ body {
 }
 
 .project-toggle {
-  font-size: 16px;
+  font-size: 14px;
   color: var(--text-color);
   font-weight: 300;
   cursor: pointer;
@@ -232,7 +232,7 @@ body {
 }
 
 .project-details {
-  margin-top: 16px;
+  margin-top: 14px;
   width: 100%;
   display: none;
   padding-left: 40px;
@@ -244,9 +244,10 @@ body {
 
 .project-description {
   font-size: 14px;
-  line-height: 1.5;
+  line-height: 1.2;
   color: var(--text-color);
   margin-bottom: 0;
+  max-width: 300px;
 }
 
 .project-link {
@@ -269,13 +270,13 @@ body {
 
 .meta-item {
   display: flex;
-  font-size: 12px;
+  font-size: 11px;
   margin-bottom: 0px;
 }
 
 .meta-label {
-  color: var(--text-light);
-  margin-right: 24px;
+  color: var(--text-color);
+  margin-right: 60px;
   min-width: 60px;
   flex-shrink: 0;
 }

@@ -48,7 +48,7 @@
         ${tool.url ? `<a href="${tool.url}" target="_blank" class="project-link">Open in a new tab</a>` : ''}
         <div class="project-meta">
           <div class="meta-item">
-            <span class="meta-label">Outputs:</span>
+            <span class="meta-label">Output:</span>
             <span class="meta-value">${Array.isArray(tool.outputs) ? tool.outputs.join(', ') : tool.outputs || 'N/A'}</span>
           </div>
           <div class="meta-item">
