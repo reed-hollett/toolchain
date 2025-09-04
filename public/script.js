@@ -2,23 +2,6 @@
   const res = await fetch('registry.json');
   const tools = await res.json();
 
-  // Logo hover functionality
-  const logoDisplay = document.getElementById('logo-display');
-  const toolNames = document.querySelectorAll('.tool-name');
-
-  toolNames.forEach(toolName => {
-    toolName.addEventListener('mouseenter', () => {
-      const logoFile = toolName.getAttribute('data-logo');
-      if (logoFile) {
-        logoDisplay.innerHTML = `<img src="images/AI Code Gen Logos/${logoFile}" alt="${toolName.textContent} logo">`;
-        logoDisplay.classList.add('show');
-      }
-    });
-
-    toolName.addEventListener('mouseleave', () => {
-      logoDisplay.classList.remove('show');
-    });
-  });
 
   const projectsList = document.getElementById('projects-list');
   let expandedProject = null;
@@ -95,6 +78,62 @@
       expandedProject = projectItem;
     }
   }
+
+  // Logo hover functionality - set up after project items are created
+  const logoDisplay = document.getElementById('logo-display');
+  const toolNames = document.querySelectorAll('.tool-name');
+
+  toolNames.forEach(toolName => {
+    toolName.addEventListener('mouseenter', () => {
+      const logoFile = toolName.getAttribute('data-logo');
+      if (logoFile) {
+        logoDisplay.innerHTML = `<img src="images/AI Code Gen Logos/${logoFile}" alt="${toolName.textContent} logo">`;
+        logoDisplay.classList.add('show');
+        
+        // Get the tool name to match against project stack
+        const toolText = toolName.textContent.trim();
+        
+        // Lighten opacity of projects NOT made with this tool
+        const projectItems = document.querySelectorAll('.project-item');
+        projectItems.forEach(item => {
+          // Find the tooling meta-value specifically
+          const metaItems = item.querySelectorAll('.meta-item');
+          let foundTooling = false;
+          
+          metaItems.forEach(metaItem => {
+            const label = metaItem.querySelector('.meta-label');
+            const value = metaItem.querySelector('.meta-value');
+            
+            if (label && label.textContent.trim() === 'Tooling:' && value) {
+              const stackText = value.textContent.toLowerCase();
+              const toolTextLower = toolText.toLowerCase();
+              
+              // Check if this project was made with the hovered tool
+              if (stackText.includes(toolTextLower)) {
+                item.style.opacity = '1'; // Keep fully opaque
+                foundTooling = true;
+              }
+            }
+          });
+          
+          // If no tooling match found, dim the project
+          if (!foundTooling) {
+            item.style.opacity = '0.3';
+          }
+        });
+      }
+    });
+
+    toolName.addEventListener('mouseleave', () => {
+      logoDisplay.classList.remove('show');
+      
+      // Restore normal opacity of all project items
+      const projectItems = document.querySelectorAll('.project-item');
+      projectItems.forEach(item => {
+        item.style.opacity = '1';
+      });
+    });
+  });
 
   // Check if there's a selected project from the landing page
   const selectedProjectSlug = sessionStorage.getItem('selectedProject');

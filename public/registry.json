@@ -103,7 +103,7 @@
       "status": "lab",
       "url": "https://bordergen.vercel.app",
       "description": "Generates decorative borders/frames with adjustable rules (thickness, pattern, corner style).",
-      "outputs": ["image"],
+      "outputs": ["image", "motion"],
       "stack": ["Lovable"],
       "muxPlaybackId": "insertIDHere"
     },
@@ -128,7 +128,7 @@
       "url": "https://typecocoon.vercel.app",
       "description": "Wraps letterforms in filament/mesh; density and thread thickness controls.",
       "outputs": ["image"],
-      "stack": [],
+      "stack": ["Lovable", "Cursor"],
       "muxPlaybackId": "insertIDHere"
     },
 
