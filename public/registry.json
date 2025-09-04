@@ -9,7 +9,7 @@
       "description": "Dithers negative/positive space of text; control weight, size, and pixel size.",
       "outputs": ["motion", "image", "interactive"],
       "stack": ["ChatGPT"],
-      "muxPlaybackId": "s1wi900uaANFE2E6k4Wsyf00bKsIqb02r5ns3puCqWK55w"
+      "muxPlaybackId": "QW02awPBdco02e7Gocw002RqKRsMgqFPNOw8YwqwcV01mYw"
     },
     {
       "slug": "type-blur",
@@ -45,7 +45,7 @@
       "description": "Horizontally segments and offsets text; control weight, size, and segment thickness.",
       "outputs": ["motion", "image"],
       "stack": ["Cursor"],
-      "muxPlaybackId": "insertIDHere"
+      "muxPlaybackId": "UaV02dVvH8nTQsn1ohU5701CdU4IolW003qpX3tvXaSsOk"
     },
     {
       "slug": "type-type",
@@ -57,7 +57,7 @@
       "description": "Draws type using clusters of glyphs; control weight, size, and glyph density.",
       "outputs": ["motion", "image"],
       "stack": ["Cursor"],
-      "muxPlaybackId": "insertIDHere"
+      "muxPlaybackId": "02QgC82mP7t2LrX3Fodd4yR5PKYYnmkGi9YWLh1hIGew"
     },
     {
       "slug": "type-gravity",

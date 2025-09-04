@@ -52,6 +52,18 @@ body {
   object-fit: contain;
 }
 
+.logo-display video,
+.logo-display mux-player {
+  max-height: 600px !important;
+  width: auto;
+  object-fit: contain;
+}
+
+mux-player {
+  --media-object-fit: contain;
+  --media-object-position: center;
+}
+
 /* Header Styles */
 .header {
   display: flex;
@@ -395,5 +407,10 @@ body {
   
   .logo-display img {
     max-height: 150px;
+  }
+  
+  .logo-display video,
+  .logo-display mux-player {
+    max-height: 300px !important;
   }
 }

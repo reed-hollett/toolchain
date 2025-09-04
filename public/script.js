@@ -54,6 +54,61 @@
     }
 
     projectsList.appendChild(projectItem);
+    
+    // Add hover functionality for projects with videos or images
+    const projectTitle = projectItem.querySelector('.project-title');
+    if (projectTitle) {
+      projectTitle.addEventListener('mouseenter', () => {
+        console.log('Hovering over project:', tool.name);
+        
+        // Reset position
+        logoDisplay.style.top = '20px';
+        logoDisplay.style.transform = 'none';
+
+        // Check if project has a video
+        if (tool.muxPlaybackId && tool.muxPlaybackId !== 'insertIDHere') {
+          console.log('Loading video for:', tool.name);
+          
+          // Set playback speed based on project
+          const playbackRate = (tool.slug === 'type-slice' || tool.slug === 'type-type') ? '3' : '2';
+          
+          logoDisplay.innerHTML = `
+            <mux-player 
+              playback-id="${tool.muxPlaybackId}"
+              autoplay="muted"
+              loop
+              playbackrate="${playbackRate}">
+            </mux-player>
+          `;
+          
+          // Set styles after element is created
+          const muxPlayer = logoDisplay.querySelector('mux-player');
+          if (muxPlayer) {
+            muxPlayer.style.maxWidth = '800px';
+            muxPlayer.style.maxHeight = '600px';
+            muxPlayer.style.width = 'auto';
+            muxPlayer.style.borderRadius = '8px';
+            muxPlayer.style.background = 'transparent';
+            muxPlayer.style.objectFit = 'contain';
+          }
+        }
+        // Check if project has a specific image
+        else if (tool.slug === 'type-blur') {
+          console.log('Loading image for:', tool.name);
+          logoDisplay.innerHTML = `
+            <img src="images/Type-blur.png" alt="${tool.name}" 
+                 style="max-width: 800px; max-height: 600px; object-fit: contain;">
+          `;
+        }
+        
+        logoDisplay.classList.add('show');
+      });
+
+      projectTitle.addEventListener('mouseleave', () => {
+        console.log('Stopped hovering over:', tool.name);
+        logoDisplay.classList.remove('show');
+      });
+    }
   });
 
   function toggleProject(projectItem, tool) {
@@ -81,6 +136,7 @@
 
   // Logo hover functionality - set up after project items are created
   const logoDisplay = document.getElementById('logo-display');
+  console.log('Logo display element:', logoDisplay);
   const toolNames = document.querySelectorAll('.tool-name');
 
   toolNames.forEach(toolName => {
