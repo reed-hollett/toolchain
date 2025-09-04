@@ -28,7 +28,7 @@
       </div>
       <div class="project-details">
         <p class="project-description">${tool.description}</p>
-        ${tool.url ? `<a href="${tool.url}" target="_blank" class="project-link">Open in a new tab</a>` : ''}
+                 ${tool.url ? `<a href="${tool.url}" target="_blank" class="project-link">Open in new tab</a>` : ''}
         <div class="project-meta">
           <div class="meta-item">
             <span class="meta-label">Output:</span>
@@ -56,9 +56,8 @@
     projectsList.appendChild(projectItem);
     
     // Add hover functionality for projects with videos or images
-    const projectTitle = projectItem.querySelector('.project-title');
-    if (projectTitle) {
-      projectTitle.addEventListener('mouseenter', () => {
+    if (projectItem) {
+      projectItem.addEventListener('mouseenter', () => {
         console.log('Hovering over project:', tool.name);
         
         // Reset position
@@ -70,7 +69,12 @@
           console.log('Loading video for:', tool.name);
           
           // Set playback speed based on project
-          const playbackRate = (tool.slug === 'type-slice' || tool.slug === 'type-type') ? '3' : '2';
+          let playbackRate = '2'; // Default 2x speed
+          if (tool.slug === 'type-slice' || tool.slug === 'type-type') {
+            playbackRate = '3'; // 3x speed
+          } else if (tool.slug === 'type-cocoon') {
+            playbackRate = '1'; // Regular speed
+          }
           
           logoDisplay.innerHTML = `
             <mux-player 
@@ -104,7 +108,7 @@
         logoDisplay.classList.add('show');
       });
 
-      projectTitle.addEventListener('mouseleave', () => {
+      projectItem.addEventListener('mouseleave', () => {
         console.log('Stopped hovering over:', tool.name);
         logoDisplay.classList.remove('show');
       });

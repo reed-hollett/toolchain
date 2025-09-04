@@ -61,15 +61,15 @@
     },
     {
       "slug": "type-gravity",
-      "name": "Type gravity",
+      "name": "Gravity gen",
       "emoji": "🌗",
       "year": 2025,
       "status": "stable",
-      "url": "https://typegravity.vercel.app",
+      "url": "https://poster-tools.vercel.app/none/gravity/solid",
       "description": "Renders type or uploaded SVG falling with simulated gravity. Choose glyphs; control weight and size.",
       "outputs": ["motion", "image", "interactive"],
       "stack": ["Cursor", "Lovable"],
-      "muxPlaybackId": "insertIDHere"
+      "muxPlaybackId": "HFg8gv4UmEshumJfiV63ZjlPfSSG411qaWYeBQR92Aw"
     },
     {
       "slug": "color-image-dither",
@@ -77,7 +77,7 @@
       "emoji": "📲",
       "year": 2025,
       "status": "wip",
-      "url": "https://colorimagedither.vercel.app",
+      "url": "https://preview--vibrant-image-weaver.lovable.app/",
       "description": "Palette-aware image dithering.",
       "outputs": ["image"],
       "stack": ["Lovable"],
@@ -89,23 +89,23 @@
       "emoji": "📱",
       "year": 2025,
       "status": "lab",
-      "url": "https://imagedither.vercel.app",
+      "url": "https://poster-tools.vercel.app/none/dither/solid",
       "description": "Renders images using glyphs or uploaded SVG; control glyph set, weight, and size.",
       "outputs": ["motion", "image"],
       "stack": ["Cursor", "Lovable"],
-      "muxPlaybackId": "insertIDHere"
+      "muxPlaybackId": "9nA46P5ZsFTJSNNC5fKl6iG7TZ01aTNLxvXO3AO5C8O00"
     },
     {
       "slug": "border-gen",
-      "name": "Border Gen",
+      "name": "Border gen",
       "emoji": "🖼️",
       "year": 2025,
       "status": "lab",
-      "url": "https://bordergen.vercel.app",
+      "url": "https://preview--border-bloom-canvas-creator.lovable.app/",
       "description": "Generates decorative borders/frames with adjustable rules (thickness, pattern, corner style).",
       "outputs": ["image", "motion"],
       "stack": ["Lovable"],
-      "muxPlaybackId": "insertIDHere"
+      "muxPlaybackId": "GrOo8pPLnMxQph5rwLX2BQL8MVjEawf2xli3p9wcePM"
     },
     {
       "slug": "poster-gradient",
@@ -117,7 +117,7 @@
       "description": "Builds candy-like poster gradients with optional grain and palette control.",
       "outputs": ["image"],
       "stack": ["Cursor", "Lovable"],
-      "muxPlaybackId": "insertIDHere"
+      "muxPlaybackId": "HQplw6BvEQmxQFVBAEEe700PjBnnaB3mlTklnPBvGMJU"
     },
     {
       "slug": "type-cocoon",
@@ -125,11 +125,11 @@
       "emoji": "🕸️",
       "year": 2024,
       "status": "lab",
-      "url": "https://typecocoon.vercel.app",
+      "url": "https://poster-tools.vercel.app/cocoon/none/solid",
       "description": "Wraps letterforms in filament/mesh; density and thread thickness controls.",
       "outputs": ["image"],
       "stack": ["Lovable", "Cursor"],
-      "muxPlaybackId": "insertIDHere"
+      "muxPlaybackId": "d02b6pZzQMcs00dGeYfl9zamDSPTJJNLnTmWfPAiZBhY00"
     },
 
     {
