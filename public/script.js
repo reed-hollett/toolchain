@@ -72,64 +72,105 @@
             playbackRate = '1'; // Regular speed
           }
           
-          logoDisplay.innerHTML = `
-            <mux-player 
-              playback-id="${tool.muxPlaybackId}"
-              autoplay="muted"
-              loop
-              playbackrate="${playbackRate}">
-            </mux-player>
-          `;
-          
-          // Set styles after element is created
-          const muxPlayer = logoDisplay.querySelector('mux-player');
-          if (muxPlayer) {
-            // Custom widths for different projects
-            let maxWidth = '1000px'; // Default width (bigger)
-            if (tool.slug === 'type-dither') {
-              maxWidth = '400px'; // Smaller width
-            } else if (['type-slice', 'type-type', 'type-gravity', 'color-image-dither'].includes(tool.slug)) {
-              maxWidth = '1200px'; // Much larger width for projects 3-6
-            }
-            
-            muxPlayer.style.maxWidth = maxWidth;
-            muxPlayer.style.maxHeight = '600px';
-            muxPlayer.style.width = 'auto';
-            muxPlayer.style.borderRadius = '8px';
-            muxPlayer.style.background = 'transparent';
-            muxPlayer.style.objectFit = 'contain';
-            
-            // Show the video after styles are applied
-            setTimeout(() => {
-              muxPlayer.classList.add('loaded');
-            }, 100);
+          // Create video with absolute positioning to bypass all layout constraints
+          const existingVideo = document.querySelector('.project-video');
+          if (existingVideo) {
+            existingVideo.remove();
           }
+          
+          const muxPlayer = document.createElement('mux-player');
+          muxPlayer.setAttribute('playback-id', tool.muxPlaybackId);
+          muxPlayer.setAttribute('autoplay', 'muted');
+          muxPlayer.setAttribute('loop', '');
+          muxPlayer.setAttribute('playbackrate', playbackRate);
+          muxPlayer.className = 'project-video';
+          
+          document.body.appendChild(muxPlayer);
+          
+          // Set styles directly on the mux-player element with aggressive sizing
+          // Custom widths for different projects - using fixed width instead of max-width
+          let width = '800px'; // Default width
+          if (tool.slug === 'type-dither') {
+            width = '400px'; // Smaller width
+          } else if (['type-slice', 'type-type', 'type-gravity', 'color-image-dither', 'image-dither', 'border-gen', 'poster-gradient', 'type-cocoon'].includes(tool.slug)) {
+            width = '1200px'; // Much larger width for projects 3-10
+          }
+          
+          // Force styles with setProperty to override any CSS
+          muxPlayer.style.setProperty('position', 'fixed', 'important');
+          muxPlayer.style.setProperty('top', '50%', 'important');
+          muxPlayer.style.setProperty('left', 'calc(50% + var(--sidebar-width) / 2)', 'important');
+          muxPlayer.style.setProperty('transform', 'translate(-50%, -50%)', 'important');
+          muxPlayer.style.setProperty('z-index', '200', 'important');
+          muxPlayer.style.setProperty('width', width, 'important');
+          muxPlayer.style.setProperty('height', '675px', 'important');
+          muxPlayer.style.setProperty('border-radius', '0px', 'important');
+          muxPlayer.style.setProperty('background', 'transparent', 'important');
+          muxPlayer.style.setProperty('object-fit', 'contain', 'important');
+          muxPlayer.style.setProperty('border', 'none', 'important');
+          muxPlayer.style.setProperty('outline', 'none', 'important');
+          muxPlayer.style.setProperty('opacity', '0', 'important');
+          muxPlayer.style.setProperty('transition', 'opacity 0.4s ease-in', 'important');
+          muxPlayer.style.setProperty('max-width', 'none', 'important');
+          muxPlayer.style.setProperty('max-height', 'none', 'important');
+          
+          // Show the video after styles are applied and force video element styling
+          setTimeout(() => {
+            muxPlayer.style.setProperty('opacity', '1', 'important');
+            
+            // Force styling on the internal video element
+            const videoElement = muxPlayer.querySelector('video');
+            if (videoElement) {
+              videoElement.style.setProperty('background', 'transparent', 'important');
+              videoElement.style.setProperty('object-fit', 'contain', 'important');
+              videoElement.style.setProperty('border', 'none', 'important');
+              videoElement.style.setProperty('outline', 'none', 'important');
+            }
+          }, 100);
         }
         // Check if project has a specific image
         else if (tool.slug === 'type-blur') {
           console.log('Loading image for:', tool.name);
-          logoDisplay.innerHTML = `
-            <img src="images/Type-blur.png" alt="${tool.name}" 
-                 style="max-width: 800px; max-height: 600px; object-fit: contain;">
-          `;
           
-          // Show the image after it loads
-          const img = logoDisplay.querySelector('img');
-          if (img) {
-            img.onload = () => {
-              setTimeout(() => {
-                img.classList.add('loaded');
-              }, 100);
-            };
+          // Create image with absolute positioning to bypass all layout constraints
+          const existingImage = document.querySelector('.project-image');
+          if (existingImage) {
+            existingImage.remove();
           }
+          
+          const img = document.createElement('img');
+          img.src = 'images/Type-blur.png';
+          img.alt = tool.name;
+          img.className = 'project-image';
+          
+          // Set styles directly on the image element
+          img.style.position = 'fixed';
+          img.style.top = '50%';
+          img.style.left = 'calc(50% + var(--sidebar-width) / 2)';
+          img.style.transform = 'translate(-50%, -50%)';
+          img.style.zIndex = '200';
+          img.style.maxWidth = '800px';
+          img.style.maxHeight = '600px';
+          img.style.objectFit = 'contain';
+          img.style.opacity = '1';
+          
+          document.body.appendChild(img);
         }
-        
-        logoDisplay.classList.add('show');
       });
 
       projectItem.addEventListener('mouseleave', () => {
         console.log('Stopped hovering over:', tool.name);
         logoDisplay.classList.remove('show');
+        
+        // Clean up video/image displays
+        const existingVideo = document.querySelector('.project-video');
+        const existingImage = document.querySelector('.project-image');
+        if (existingVideo) {
+          existingVideo.remove();
+        }
+        if (existingImage) {
+          existingImage.remove();
+        }
       });
     }
   });
