@@ -28,7 +28,6 @@
       </div>
       <div class="project-details">
         <p class="project-description">${tool.description}</p>
-                 ${tool.url ? `<a href="${tool.url}" target="_blank" class="project-link">Open in new tab</a>` : ''}
         <div class="project-meta">
           <div class="meta-item">
             <span class="meta-label">Output:</span>
@@ -43,6 +42,7 @@
             <span class="meta-value">${tool.year || 'N/A'}</span>
           </div>
         </div>
+        ${tool.url ? `<a href="${tool.url}" target="_blank" class="project-link">Open in new tab</a>` : ''}
       </div>
     `;
 
@@ -56,13 +56,9 @@
     projectsList.appendChild(projectItem);
     
     // Add hover functionality for projects with videos or images
-    if (projectItem) {
+    if (projectItem && !isDisabled) {
       projectItem.addEventListener('mouseenter', () => {
         console.log('Hovering over project:', tool.name);
-        
-        // Reset position
-        logoDisplay.style.top = '20px';
-        logoDisplay.style.transform = 'none';
 
         // Check if project has a video
         if (tool.muxPlaybackId && tool.muxPlaybackId !== 'insertIDHere') {
@@ -70,7 +66,7 @@
           
           // Set playback speed based on project
           let playbackRate = '2'; // Default 2x speed
-          if (tool.slug === 'type-slice' || tool.slug === 'type-type') {
+          if (tool.slug === 'type-slice' || tool.slug === 'type-type' || tool.slug === 'color-image-dither') {
             playbackRate = '3'; // 3x speed
           } else if (tool.slug === 'type-cocoon') {
             playbackRate = '1'; // Regular speed
@@ -88,12 +84,25 @@
           // Set styles after element is created
           const muxPlayer = logoDisplay.querySelector('mux-player');
           if (muxPlayer) {
-            muxPlayer.style.maxWidth = '800px';
+            // Custom widths for different projects
+            let maxWidth = '1000px'; // Default width (bigger)
+            if (tool.slug === 'type-dither') {
+              maxWidth = '400px'; // Smaller width
+            } else if (['type-slice', 'type-type', 'type-gravity', 'color-image-dither'].includes(tool.slug)) {
+              maxWidth = '1200px'; // Much larger width for projects 3-6
+            }
+            
+            muxPlayer.style.maxWidth = maxWidth;
             muxPlayer.style.maxHeight = '600px';
             muxPlayer.style.width = 'auto';
             muxPlayer.style.borderRadius = '8px';
             muxPlayer.style.background = 'transparent';
             muxPlayer.style.objectFit = 'contain';
+            
+            // Show the video after styles are applied
+            setTimeout(() => {
+              muxPlayer.classList.add('loaded');
+            }, 100);
           }
         }
         // Check if project has a specific image
@@ -103,6 +112,16 @@
             <img src="images/Type-blur.png" alt="${tool.name}" 
                  style="max-width: 800px; max-height: 600px; object-fit: contain;">
           `;
+          
+          // Show the image after it loads
+          const img = logoDisplay.querySelector('img');
+          if (img) {
+            img.onload = () => {
+              setTimeout(() => {
+                img.classList.add('loaded');
+              }, 100);
+            };
+          }
         }
         
         logoDisplay.classList.add('show');
@@ -149,6 +168,16 @@
       if (logoFile) {
         logoDisplay.innerHTML = `<img src="images/AI Code Gen Logos/${logoFile}" alt="${toolName.textContent} logo">`;
         logoDisplay.classList.add('show');
+        
+        // Add loaded class to image for fade-in effect
+        const img = logoDisplay.querySelector('img');
+        if (img) {
+          img.onload = () => {
+            setTimeout(() => {
+              img.classList.add('loaded');
+            }, 100);
+          };
+        }
         
         // Get the tool name to match against project stack
         const toolText = toolName.textContent.trim();

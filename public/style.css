@@ -28,14 +28,15 @@ body {
 /* Logo Display */
 .logo-display {
   position: fixed;
-  top: 0;
-  right: 0;
+  top: 50%;
+  left: calc(50% + var(--sidebar-width) / 2);
+  transform: translate(-50%, -50%);
   max-height: 300px;
   width: auto;
   background: transparent;
   display: flex;
-  align-items: flex-start;
-  justify-content: flex-end;
+  align-items: center;
+  justify-content: center;
   opacity: 0;
   transition: opacity 0.3s ease;
   z-index: 200;
@@ -50,6 +51,12 @@ body {
   max-height: 300px;
   width: auto;
   object-fit: contain;
+  opacity: 0;
+  transition: opacity 0.4s ease-in;
+}
+
+.logo-display img.loaded {
+  opacity: 1;
 }
 
 .logo-display video,
@@ -57,6 +64,12 @@ body {
   max-height: 600px !important;
   width: auto;
   object-fit: contain;
+  opacity: 0;
+  transition: opacity 0.4s ease-in;
+}
+
+.logo-display mux-player.loaded {
+  opacity: 1;
 }
 
 mux-player {
@@ -278,6 +291,7 @@ mux-player {
   display: flex;
   flex-direction: column;
   gap: 0px;
+  padding: 16px 0;
 }
 
 .meta-item {
@@ -399,8 +413,9 @@ mux-player {
   
   /* Mobile logo display positioning */
   .logo-display {
-    top: 10px;
-    right: 10px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     max-height: 200px;
     padding: 10px;
   }

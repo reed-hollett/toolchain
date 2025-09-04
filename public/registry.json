@@ -29,7 +29,7 @@
       "emoji": "🦓",
       "year": 2024,
       "status": "stable",
-      "url": "https://typeline.vercel.app",
+      "url": "https://www.type-tools.com/line/line.html",
       "description": "Replaces text with lines; control weight, size, and line thickness.",
       "outputs": ["motion", "image", "interactive"],
       "stack": ["Cursor"],
@@ -81,7 +81,7 @@
       "description": "Palette-aware image dithering.",
       "outputs": ["image"],
       "stack": ["Lovable"],
-      "muxPlaybackId": "insertIDHere"
+      "muxPlaybackId": "00g1kLDd1WpQRmCJ88usY02TCRtzdfmq00TtogNV01PhKKs"
     },
     {
       "slug": "image-dither",
