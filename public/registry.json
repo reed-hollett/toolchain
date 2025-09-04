@@ -113,7 +113,7 @@
       "emoji": "🍬",
       "year": 2024,
       "status": "lab",
-      "url": "https://postergradient.vercel.app",
+      "url": "https://poster-works.vercel.app/",
       "description": "Builds candy-like poster gradients with optional grain and palette control.",
       "outputs": ["image"],
       "stack": ["Cursor", "Lovable"],
